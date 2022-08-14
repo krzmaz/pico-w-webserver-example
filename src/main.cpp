@@ -1,15 +1,16 @@
 #include <string.h>
 #include <stdlib.h>
 
+#include "lwip/apps/httpd.h"
 #include "pico/stdlib.h"
 #include "pico/cyw43_arch.h"
 
-
 #include "lwipopts.h"
-#include "lwip/apps/httpd.h"
+#include "ssi.h"
 
 void run_server() {
     httpd_init();
+    ssi_init();
     printf("Http server initialized.\n");
     // infinite loop for now
     for (;;) {}

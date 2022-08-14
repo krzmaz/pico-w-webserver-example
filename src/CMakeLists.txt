@@ -4,7 +4,7 @@ set(MAKE_FS_DATA_SCRIPT ${CMAKE_CURRENT_LIST_DIR}/external/makefsdata)
 
 if (NOT EXISTS ${MAKE_FS_DATA_SCRIPT})
         file(DOWNLOAD
-                https://raw.githubusercontent.com/lwip-tcpip/lwip/239918ccc173cb2c2a62f41a40fd893f57faf1d6/src/apps/http/makefsdata/makefsdata
+                https://raw.githubusercontent.com/krzmaz/lwip/e15654409d14a238aec5ed4bd5516063938c9345/src/apps/http/makefsdata/makefsdata
                 ${MAKE_FS_DATA_SCRIPT}
                 )
 endif()
@@ -32,6 +32,7 @@ target_link_libraries(${PROGRAM_NAME}
         pico_cyw43_arch_lwip_threadsafe_background
         pico_lwip_http
         pico_stdlib
+        hardware_adc
         )
 
 pico_enable_stdio_usb(${PROGRAM_NAME} TRUE)
