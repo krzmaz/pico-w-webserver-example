@@ -1,5 +1,6 @@
-## Example of a web server using Pico SDK
-In my testing it reached 20x performance of the MicroPython implementation from point 3.9.1 of https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf
+## Example of a web server using Pico SDK and lwIP
+This example was described in more detail in a blog post: https://krzmaz.github.io/2022-08-15-creating-a-web-server-on-raspberry-pi-pico-w-using-pico-sdk-and-lwip/  
+In my testing it reached ~20x performance of the MicroPython implementation from point 3.9.1 of https://datasheets.raspberrypi.com/picow/connecting-to-the-internet-with-pico-w.pdf
 
 ### One time setup
 ```bash
