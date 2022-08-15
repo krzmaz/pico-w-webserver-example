@@ -13,11 +13,11 @@ const char * __not_in_flash("httpd") ssi_example_tags[] = {
   "counter",
   "GPIO"
 };
-u16_t __not_in_flash_func(ssi_handler)(int iIndex, char *pcInsert, int iInsertLen) {
+u16_t __time_critical_func(ssi_handler)(int iIndex, char *pcInsert, int iInsertLen) {
   size_t printed;
   switch (iIndex) {
   case 0: /* "Hello" */
-    printed = snprintf(pcInsert, iInsertLen, "Hello World!");
+    printed = snprintf(pcInsert, iInsertLen, "Hello user number %d!", rand());
     break;
   case 1: /* "counter" */
     {
