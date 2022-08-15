@@ -13,7 +13,7 @@ execute_process(COMMAND
         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
         )
 execute_process(COMMAND
-        mv fsdata.c fsdata_custom.c
+        mv fsdata.c my_fsdata.c
         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
         )
 
