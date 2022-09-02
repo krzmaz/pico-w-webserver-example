@@ -1,4 +1,5 @@
 build
+.vscode
 
 cmake/credentials.cmake
 cmake/pico_sdk_import.cmake

@@ -1,21 +1,16 @@
 set(PROGRAM_NAME pico_w_webserver)
 
-set(MAKE_FS_DATA_SCRIPT ${CMAKE_CURRENT_LIST_DIR}/external/makefsdata)
+set(MAKE_FS_DATA_SCRIPT ${CMAKE_CURRENT_LIST_DIR}/makefsdata.py)
 
-if (NOT EXISTS ${MAKE_FS_DATA_SCRIPT})
-        file(DOWNLOAD
-                https://raw.githubusercontent.com/krzmaz/lwip/e15654409d14a238aec5ed4bd5516063938c9345/src/apps/http/makefsdata/makefsdata
-                ${MAKE_FS_DATA_SCRIPT}
-                )
-endif()
+find_package(Python3 COMPONENTS Interpreter REQUIRED)
+
 execute_process(COMMAND
-        perl ${MAKE_FS_DATA_SCRIPT}
-        WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-        )
-execute_process(COMMAND
-        mv fsdata.c my_fsdata.c
-        WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-        )
+		${Python3_EXECUTABLE} ${MAKE_FS_DATA_SCRIPT}
+		WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+		RESULT_VARIABLE FSDATA_RESULT
+		)
+
+file(RENAME fsdata.c my_fsdata.c)
 
 add_executable(${PROGRAM_NAME}
         main.cpp
