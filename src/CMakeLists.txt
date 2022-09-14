@@ -12,10 +12,7 @@ execute_process(COMMAND
         perl ${MAKE_FS_DATA_SCRIPT}
         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
         )
-execute_process(COMMAND
-        mv fsdata.c my_fsdata.c
-        WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-        )
+file(RENAME fsdata.c my_fsdata.c)
 
 add_executable(${PROGRAM_NAME}
         main.cpp
