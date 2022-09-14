@@ -5,10 +5,12 @@ In my testing it reached ~20x performance of the MicroPython implementation from
 If you want to test this example with your html files, just add/edit them in the `src/fs` directory and rebuild the project! 
 
 ---
-**NOTE**
+### Dependencies:
+- CMake 3.19+
+- ARM GNU toolchain
+- [Perl](https://www.perl.org/get.html) (should be already present on *nix systems)
 
-This project was only tested on Linux and MacOS, I haven't prepared it for Windows.  
-If you need that, feel free to contribute a PR or reach out in the issue section!
+For the first two you can refer to [these instructions](https://datasheets.raspberrypi.com/pico/getting-started-with-pico.pdf#%5B%7B%22num%22%3A39%2C%22gen%22%3A0%7D%2C%7B%22name%22%3A%22XYZ%22%7D%2C115%2C841.89%2Cnull%5D)
 
 ---
 
