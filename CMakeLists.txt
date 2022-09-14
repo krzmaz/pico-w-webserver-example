@@ -1,5 +1,9 @@
 cmake_minimum_required(VERSION 3.19)
 
+find_package(Perl)
+if(NOT PERL_FOUND)
+    message(FATAL_ERROR "Perl is needed for generating the fsdata.c file")
+endif()
 
 set(PICO_BOARD pico_w)
 include(cmake/utils.cmake)
