@@ -8,9 +8,13 @@ if (NOT EXISTS ${MAKE_FS_DATA_SCRIPT})
                 ${MAKE_FS_DATA_SCRIPT}
                 )
 endif()
+message("Running makefsdata script")
 execute_process(COMMAND
         perl ${MAKE_FS_DATA_SCRIPT}
         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
+        ECHO_OUTPUT_VARIABLE
+        ECHO_ERROR_VARIABLE
+        COMMAND_ERROR_IS_FATAL ANY
         )
 file(RENAME fsdata.c my_fsdata.c)
 
