@@ -1,5 +1,9 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.19)
 
+find_package(Perl)
+if(NOT PERL_FOUND)
+    message(FATAL_ERROR "Perl is needed for generating the fsdata.c file")
+endif()
 
 set(PICO_BOARD pico_w)
 include(cmake/utils.cmake)
@@ -13,8 +17,14 @@ set(PICO_SDK_FETCH_FROM_GIT on)
 include(cmake/pico_sdk_import.cmake)
 
 
-# copy it over from cmake/credentials.cmake.example
-include(cmake/credentials.cmake)
+if(EXISTS cmake/credentials.cmake)
+    # copy it over from cmake/credentials.cmake.example
+    include(cmake/credentials.cmake)
+else()
+    message(WARNING "Credentials file not found, using default values!")
+    set(WIFI_SSID "SSID" CACHE INTERNAL "WiFi SSID for examples")
+    set(WIFI_PASSWORD "password" CACHE INTERNAL "WiFi password for examples")
+endif()
 
 project(pico_w_webserver C CXX ASM)
 set(CMAKE_EXPORT_COMPILE_COMMANDS TRUE)
