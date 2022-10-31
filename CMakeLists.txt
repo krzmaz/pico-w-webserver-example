@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.19)
 
-find_package(Perl)
-if(NOT PERL_FOUND)
-    message(FATAL_ERROR "Perl is needed for generating the fsdata.c file")
+if (NOT MAKEFSDATA_FOUND)
+    set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} ${CMAKE_SOURCE_DIR}/cmake)
+    find_package(MAKEFSDATA)
 endif()
 
 set(PICO_BOARD pico_w)
@@ -15,7 +15,6 @@ set(PICO_SDK_FETCH_FROM_GIT on)
 # pico_sdk_import.cmake is a single file copied from this SDK
 # note: this must happen before project()
 include(cmake/pico_sdk_import.cmake)
-
 
 if(EXISTS cmake/credentials.cmake)
     # copy it over from cmake/credentials.cmake.example

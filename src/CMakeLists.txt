@@ -1,26 +1,15 @@
 set(PROGRAM_NAME pico_w_webserver)
 
-set(MAKE_FS_DATA_SCRIPT ${CMAKE_CURRENT_LIST_DIR}/external/makefsdata)
-
-if (NOT EXISTS ${MAKE_FS_DATA_SCRIPT})
-        file(DOWNLOAD
-                https://raw.githubusercontent.com/krzmaz/lwip/e15654409d14a238aec5ed4bd5516063938c9345/src/apps/http/makefsdata/makefsdata
-                ${MAKE_FS_DATA_SCRIPT}
-                )
-endif()
-message("Running makefsdata script")
-execute_process(COMMAND
-        perl ${MAKE_FS_DATA_SCRIPT}
+add_custom_target(
+        generate_fs
+        COMMAND makefsdata -11 -f:my_fsdata.c
         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
-        ECHO_OUTPUT_VARIABLE
-        ECHO_ERROR_VARIABLE
-        COMMAND_ERROR_IS_FATAL ANY
         )
-file(RENAME fsdata.c my_fsdata.c)
 
 add_executable(${PROGRAM_NAME}
         main.cpp
         )
+add_dependencies(${PROGRAM_NAME} generate_fs)
 target_compile_definitions(${PROGRAM_NAME} PRIVATE
         WIFI_SSID=\"${WIFI_SSID}\"
         WIFI_PASSWORD=\"${WIFI_PASSWORD}\"
