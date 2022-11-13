@@ -57,6 +57,10 @@
 
 #define LWIP_AUTOIP 1
 
+#define LWIP_IGMP 1
+#define LWIP_MDNS_RESPONDER 1
+#define LWIP_NUM_NETIF_CLIENT_DATA (LWIP_MDNS_RESPONDER)
+
 #define LWIP_HTTPD 1
 #define LWIP_HTTPD_SSI 1
 // don't include the tag comment - less work for the CPU, but may be harder to debug
