@@ -21,6 +21,8 @@ file(RENAME fsdata.c my_fsdata.c)
 add_executable(${PROGRAM_NAME}
         main.cpp
         double_reset_detector.cpp
+        access_point.cpp
+        http_server.cpp
         )
 target_compile_definitions(${PROGRAM_NAME} PRIVATE
         WIFI_SSID=\"${WIFI_SSID}\"

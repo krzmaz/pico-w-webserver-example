@@ -1,10 +1,10 @@
-#pragma once
-
 #include "hardware/adc.h"
 #include "lwip/apps/httpd.h"
 #include "pico/cyw43_arch.h"
 
 #include "lwipopts.h"
+
+namespace http_server {
 
 // max length of the tags defaults to be 8 chars
 // LWIP_HTTPD_MAX_TAG_NAME_LEN
@@ -54,3 +54,10 @@ void ssi_init() {
     ssi_example_tags, LWIP_ARRAYSIZE(ssi_example_tags)
     );
 }
+
+void start_http_server() {
+    httpd_init();
+    ssi_init();
+    printf("Http server initialized.\n");
+}
+} // namespace http_server

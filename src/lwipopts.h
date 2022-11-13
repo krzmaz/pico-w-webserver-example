@@ -55,6 +55,8 @@
 #define LWIP_STATS_DISPLAY          1
 #endif
 
+#define LWIP_AUTOIP 1
+
 #define LWIP_HTTPD 1
 #define LWIP_HTTPD_SSI 1
 // don't include the tag comment - less work for the CPU, but may be harder to debug
