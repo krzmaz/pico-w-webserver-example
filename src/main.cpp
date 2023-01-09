@@ -6,11 +6,13 @@
 #include "pico/cyw43_arch.h"
 
 #include "lwipopts.h"
+#include "cgi.h"
 #include "ssi.h"
 
 void run_server() {
     httpd_init();
     ssi_init();
+	cgi_init();
     printf("Http server initialized.\n");
     // infinite loop for now
     for (;;) {}
@@ -23,9 +25,6 @@ int main() {
         printf("failed to initialise\n");
         return 1;
     }
-    // turn on LED to distinguish from BOOTSEL mode
-    cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
-
     cyw43_arch_enable_sta_mode();
     // this seems to be the best be can do using the predefined `cyw43_pm_value` macro:
     // cyw43_wifi_pm(&cyw43_state, CYW43_PERFORMANCE_PM);
@@ -43,6 +42,9 @@ int main() {
         auto ip_addr = cyw43_state.netif[CYW43_ITF_STA].ip_addr.addr;
         printf("IP Address: %lu.%lu.%lu.%lu\n", ip_addr & 0xFF, (ip_addr >> 8) & 0xFF, (ip_addr >> 16) & 0xFF, ip_addr >> 24);
     }
-    
+    // turn on LED to signal connected
+    cyw43_arch_gpio_put(CYW43_WL_GPIO_LED_PIN, 1);
+
+
     run_server();
 }
