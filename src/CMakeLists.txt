@@ -14,7 +14,7 @@ execute_process(COMMAND
         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
         ECHO_OUTPUT_VARIABLE
         ECHO_ERROR_VARIABLE
-        COMMAND_ERROR_IS_FATAL ANY
+#        COMMAND_ERROR_IS_FATAL ANY
         )
 file(RENAME fsdata.c my_fsdata.c)
 
@@ -37,7 +37,7 @@ target_link_libraries(${PROGRAM_NAME}
         )
 
 pico_enable_stdio_usb(${PROGRAM_NAME} TRUE)
-pico_enable_stdio_uart(${PROGRAM_NAME} FALSE)
+pico_enable_stdio_uart(${PROGRAM_NAME} TRUE)
 suppress_tinyusb_warnings()
 
 pico_add_extra_outputs(${PROGRAM_NAME})
