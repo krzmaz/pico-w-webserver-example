@@ -20,6 +20,7 @@ file(RENAME fsdata.c my_fsdata.c)
 
 add_executable(${PROGRAM_NAME}
         main.cpp
+        cgi.cpp
         )
 target_compile_definitions(${PROGRAM_NAME} PRIVATE
         WIFI_SSID=\"${WIFI_SSID}\"
