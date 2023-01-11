@@ -6,3 +6,7 @@ cmake/pico_sdk_import.cmake
 # clangd stuff
 .cache
 compile_commands.json
+
+#kate backups
+*~
+

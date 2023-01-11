@@ -10,7 +10,7 @@
 	Then click on the "Send" button to submit the changes.<br>
 	</span>
 	<br>
-	<form method="get" action="/leds2.cgi">
+	<form method="get" action="/leds_ext.cgi">
 		<input value="1" name="led" type="checkbox" <!--#state1-->>
 			<span style=<!--#bg1-->>LED1</span><br>
 		<input value="2" name="led" type="checkbox" <!--#state2-->>

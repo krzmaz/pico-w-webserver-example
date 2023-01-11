@@ -12,7 +12,7 @@
 void run_server() {
     httpd_init();
     ssi_init();
-	cgi_init();
+    cgi_init();
     printf("Http server initialized.\n");
     // infinite loop for now
     for (;;) {}
