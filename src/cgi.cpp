@@ -23,11 +23,11 @@ cgi_handler_basic(int iIndex, int iNumParams, char *pcParam[], char *pcValue[])
 {
     int i=0;
 
-    /* We use this handler only for one page request ("/leds.cgi")
+    /* We use this handler for one page request only: "/leds.cgi"
      * and it is at position 0 in the tCGI array (see above).
      * So iIndex should be 0.
      */
-    LWIP_ASSERT("cgi_handler_basic called with wrong index", iIndex == 0);
+    printf("cgi_handler_basic called with index %d\n", iIndex);
 
     /* All leds off */
     Led_Off(LED1);
@@ -70,11 +70,11 @@ cgi_handler_extended(int iIndex, int iNumParams, char *pcParam[], char *pcValue[
 {
     int i=0;
 
-    /* We use this handler only for one request ("/leds_ext.cgi")
+    /* We use this handler for one page request only: "/leds_ext.cgi"
      * and it is at position 1 in the tCGI array (see above).
      * So iIndex should be 1.
      */
-    LWIP_ASSERT("cgi_handler_basic called with wrong index", iIndex == 1);
+    printf("cgi_handler_extended called with index %d\n", iIndex);
 
     /* All leds off */
     Led_Off(LED1);
