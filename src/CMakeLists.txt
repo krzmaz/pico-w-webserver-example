@@ -14,7 +14,6 @@ execute_process(COMMAND
         WORKING_DIRECTORY ${CMAKE_CURRENT_LIST_DIR}
         ECHO_OUTPUT_VARIABLE
         ECHO_ERROR_VARIABLE
-#        COMMAND_ERROR_IS_FATAL ANY
         )
 file(RENAME fsdata.c my_fsdata.c)
 
