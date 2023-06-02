@@ -1,9 +1,9 @@
-# see https://github.com/raspberrypi/pico-sdk/issues/780
-function(suppress_tinyusb_warnings)
+# see https://github.com/raspberrypi/pico-sdk/issues/1282
+function(suppress_pico_sdk_warnings)
         set_source_files_properties(
-                ${PICO_TINYUSB_PATH}/src/portable/raspberrypi/rp2040/rp2040_usb.c
+                ${PICO_SDK_PATH}/src/rp2_common/pico_async_context/async_context_threadsafe_background.c
                 PROPERTIES
-                COMPILE_FLAGS "-Wno-stringop-overflow -Wno-array-bounds")
+                COMPILE_FLAGS "-Wno-unused-function")
 endfunction()
 
 function(get_pico_sdk_import_cmake)
