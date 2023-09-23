@@ -17,7 +17,7 @@ set(PICO_SDK_FETCH_FROM_GIT on)
 include(cmake/pico_sdk_import.cmake)
 
 
-if(EXISTS cmake/credentials.cmake)
+if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/cmake/credentials.cmake)
     # copy it over from cmake/credentials.cmake.example
     include(cmake/credentials.cmake)
 else()
