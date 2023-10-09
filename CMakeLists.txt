@@ -19,6 +19,7 @@ include(cmake/pico_sdk_import.cmake)
 
 if(EXISTS cmake/credentials.cmake)
     # copy it over from cmake/credentials.cmake.example
+    
     include(cmake/credentials.cmake)
 else()
     message(WARNING "Credentials file not found, using default values!")
