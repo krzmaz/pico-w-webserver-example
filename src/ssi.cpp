@@ -98,8 +98,7 @@ void ssi_init()
     adc_init();
     adc_gpio_init(26);
     adc_select_input(0);
-    size_t i;
-    for (i = 0; i < LWIP_ARRAYSIZE(ssi_example_tags); i++) {
+    for (size_t i = 0; i < LWIP_ARRAYSIZE(ssi_example_tags); i++) {
         LWIP_ASSERT("tag too long for LWIP_HTTPD_MAX_TAG_NAME_LEN",
                     strlen(ssi_example_tags[i]) <= LWIP_HTTPD_MAX_TAG_NAME_LEN);
     }
